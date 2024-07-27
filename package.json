@@ -15,7 +15,8 @@
     "concurrently": "^8.2.2",
     "express": "^4.19.2",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.5.1"
+    "mongoose": "^8.5.1",
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
