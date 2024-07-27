@@ -6,17 +6,16 @@ const Navbar = () => {
     return (
         <Nav>
             <NavLeft>
-                <Logo src="logo.png" alt="Logo" /> 
-                <Brand>FIND YOUR HOME </Brand>
-                
+                <Logo src="logo.png" alt="Logo" /> {/* Add your logo */}
+                <Brand>FIND YOUR HOME</Brand>
             </NavLeft>
-            <NavMenu>
-                <NavItem><a href="#features">Pourquoi nous? </a></NavItem>
-               
-            </NavMenu>
-            
-            <ContactButton>Se connecter</ContactButton>
-            <button> PUBLIER UNE ANNONCE </button>
+            <NavRight>
+                <NavMenu>
+                    <NavItem><a href="#why-us">Pourquoi nous?</a></NavItem>
+                </NavMenu>
+                <ContactButton>Se connecter</ContactButton>
+                <PublishButton>PUBLIER UNE ANNONCE</PublishButton>
+            </NavRight>
         </Nav>
     );
 };
@@ -38,6 +37,12 @@ const NavLeft = styled.div`
     align-items: center;
 `;
 
+const NavRight = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+`;
+
 const Logo = styled.img`
     height: 40px;
     margin-right: 10px;
@@ -48,14 +53,6 @@ const Brand = styled.span`
     font-weight: bold;
     color: #000;
     margin-right: 10px;
-`;
-
-const Beta = styled.span`
-    background-color: #e0e0e0;
-    color: #333;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 0.9rem;
 `;
 
 const NavMenu = styled.ul`
@@ -88,3 +85,17 @@ const ContactButton = styled.button`
         background-color: #e64a19;
     }
 `;
+
+const PublishButton = styled.button`
+    background-color: transparent;
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
+`;
+
