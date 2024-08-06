@@ -1,17 +1,20 @@
 const mongoose = require("mongoose");
 
 const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.DB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            
-        });
-        console.log("Database connected");
-    } catch (error) {
-        console.error("Could not connect to database:", error.message);
-        process.exit(1);
+  try {
+    
+    const dbURI = process.env.DB_URI; 
+
+   
+    if (!dbURI) {
+      throw new Error("DB_URI environment variable is not set.");
     }
+
+    await mongoose.connect(dbURI);
+    console.log('Database connected');
+  } catch (err) {
+    console.error('Database connection error:', err);
+  }
 };
 
 module.exports = connectDB;
