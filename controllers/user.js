@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
 exports.register = async (req, res) => {
@@ -10,8 +11,12 @@ exports.register = async (req, res) => {
       return res.status(400).send({ errors: [{ msg: "Email should be unique, try again" }] });
     }
 
+    // Hashage du mot de passe
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
     // Créer un nouvel utilisateur
-    const newUser = new User({ name, email, password, phone });
+    const newUser = new User({ name, email, password: hashedPassword, phone });
     await newUser.save();
 
     // Réponse en cas de succès
@@ -23,5 +28,21 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-  res.send("Login route");
+  try {
+    const { email, password } = req.body;
+    const foundUser = await User.findOne({ email });
+    if (!foundUser) {
+      return res.status(400).send({ errors: [{ msg: "Bad credential!" }] });
+    }
+
+    // Comparaison des mots de passe
+    const isMatch = await bcrypt.compare(password, foundUser.password);
+    if (!isMatch) {
+      return res.status(400).send({ errors: [{ msg: "Bad credential!" }] });
+    }
+
+    res.status(200).send({ msg: "Login successful", user: foundUser });
+  } catch (error) {
+    res.status(400).send({ errors: [{ msg: "Cannot login" }] });
+  }
 };
