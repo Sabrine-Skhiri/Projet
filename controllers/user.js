@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-
+const jwt = require ('jsonwebtoken');
 exports.register = async (req, res) => {
   try {
     const { name, email, password, phone } = req.body;
@@ -18,9 +18,16 @@ exports.register = async (req, res) => {
     // Créer un nouvel utilisateur
     const newUser = new User({ name, email, password: hashedPassword, phone });
     await newUser.save();
+    //creation token 
+    const token = jwt.sign(
+      {id : newUser._id
+      },
+      process.env.SECRET_KEY,
+      {expiresIn:"1h"}
+    );
 
     // Réponse en cas de succès
-    res.status(200).send({ msg: "Registered successfully", user: newUser });
+    res.status(200).send({ msg: "Registered successfully", user: newUser , token});
   } catch (error) {
     // Réponse en cas d'erreur
     return res.status(400).send({ errors: [{ msg: "Cannot register" }] });
@@ -40,8 +47,15 @@ exports.login = async (req, res) => {
     if (!isMatch) {
       return res.status(400).send({ errors: [{ msg: "Bad credential!" }] });
     }
+//creation token 
+const token = jwt.sign(
+  {id : foundUser._id
+  },
+  process.env.SECRET_KEY,
+  {expiresIn:"1h"}
+);
 
-    res.status(200).send({ msg: "Login successful", user: foundUser });
+    res.status(200).send({ msg: "Login successful", user: foundUser ,token});
   } catch (error) {
     res.status(400).send({ errors: [{ msg: "Cannot login" }] });
   }
