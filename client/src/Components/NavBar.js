@@ -13,6 +13,7 @@ const Navbar = () => {
                 <NavMenu>
                     <NavItem><a href="#why-us">Pourquoi nous?</a></NavItem>
                 </NavMenu>
+                <ContactButton>S'inscrire</ContactButton>
                 <ContactButton>Se connecter</ContactButton>
                 <PublishButton>PUBLIER UNE ANNONCE</PublishButton>
             </NavRight>
