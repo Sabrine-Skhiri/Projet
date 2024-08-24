@@ -3,10 +3,11 @@ import React, { useState } from 'react';
     import { useDispatch } from 'react-redux';
     import { register } from '../JS/Actions/user'; // Importer l'action pour enregistrer un utilisateur
     import { someFunction } from '../JS/Actions/user';
+    import { useNavigate } from "react-router-dom";
     const Register = () => {
         const [newUser, setNewUser] = useState({}); // Déclarer un état local pour stocker les informations du nouvel utilisateur
-        const dispatch = useDispatch(); // Utiliser useDispatch pour accéder à la méthode dispatch de Redux
-    
+        const dispatch = useDispatch(); // Utiliser useDispatch pour accéder à la méthode dispatch de Redux 
+        const navigate=useNavigate();
         // Fonction pour gérer les changements dans les champs du formulaire
         const handleChange = (e) => {
             setNewUser({
@@ -19,6 +20,7 @@ import React, { useState } from 'react';
         const handleUser = (e) => {
             e.preventDefault(); // Empêcher le rechargement de la page lors de la soumission du formulaire
             dispatch(register(newUser)); // Envoyer une action pour enregistrer le nouvel utilisateur via Redux
+            navigate("/profile");
         };
     return(
     <div>

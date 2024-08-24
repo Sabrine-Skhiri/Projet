@@ -11,7 +11,7 @@ const userRoutes = require('./routes/user');
 //middleware
 app.use(express.json())
 app.use('/api/user',userRoutes);
-app.use('/api/contact',require('./routes/contact'));
+
 //3
 const PORT = process.env.PORT;
 
