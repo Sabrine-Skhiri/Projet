@@ -4,7 +4,7 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import Error from './Pages/Error';
 import Home from './Pages/Home';
-import Contacts from './Pages/Contacts';
+import Register from './Pages/Register';
 
 function App() {
   return (
@@ -13,8 +13,9 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/error" element={<Error />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/*" element={<Error />} />
         </Routes>
       </div>
     </Router>

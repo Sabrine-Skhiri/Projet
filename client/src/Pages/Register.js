@@ -22,15 +22,15 @@ import React, { useState } from 'react';
         };
     return(
     <div>
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="text" placeholder="Nom" />
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Adresse email" />
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="password" placeholder="Mot de passe" />
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="number" placeholder="Numéro de téléphone" />
-        <Button variant="primary" type="submit">
+        <Form.Label>Nom</Form.Label>
+        <Form.Control type="text" placeholder="Nom" name='name'onChange={handleChange} />
+        <Form.Label>Adresse email</Form.Label>
+        <Form.Control type="email" placeholder="Adresse email" name="email" onChange={handleChange} />
+        <Form.Label>Mot de passe</Form.Label>
+        <Form.Control type="password" placeholder="Mot de passe" name="password" onChange={handleChange}/>
+        <Form.Label>Numéro de téléphone</Form.Label>
+        <Form.Control type="number" placeholder="Numéro de téléphone" name="phone" onChange={handleChange}/>
+        <Button variant="primary" type="submit" onClick={handleUser}>
         S'inscrire 
       </Button>
     </div>)
