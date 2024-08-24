@@ -2,7 +2,7 @@ import React, { useState } from 'react';
     import { Form, Button } from 'react-bootstrap';
     import { useDispatch } from 'react-redux';
     import { register } from '../JS/Actions/user'; // Importer l'action pour enregistrer un utilisateur
-    
+    import { someFunction } from '../JS/Actions/user';
     const Register = () => {
         const [newUser, setNewUser] = useState({}); // Déclarer un état local pour stocker les informations du nouvel utilisateur
         const dispatch = useDispatch(); // Utiliser useDispatch pour accéder à la méthode dispatch de Redux
