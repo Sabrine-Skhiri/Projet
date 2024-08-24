@@ -1,17 +1,18 @@
 // src/Navbar.js
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <Nav>
             <NavLeft>
-                <Logo src="logo.png" alt="Logo" /> {/* Add your logo */}
+                <Logo src="logo.png" alt="Logo" /> 
                 <Brand>FIND YOUR HOME</Brand>
             </NavLeft>
             <NavRight>
                 <NavMenu>
-                    <NavItem><a href="#why-us">Pourquoi nous?</a></NavItem>
+                    <NavItem><Link to="/why-us">Pourquoi nous?</Link></NavItem>
                 </NavMenu>
                 <ContactButton>S'inscrire</ContactButton>
                 <ContactButton>Se connecter</ContactButton>
