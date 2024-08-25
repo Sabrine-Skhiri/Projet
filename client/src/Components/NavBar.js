@@ -1,4 +1,3 @@
-// src/Navbar.js
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -7,15 +6,19 @@ const Navbar = () => {
     return (
         <Nav>
             <NavLeft>
-                <Logo src="logo.png" alt="Logo" /> 
+                <Logo src="/images/logo.png" /> 
                 <Brand>FIND YOUR HOME</Brand>
             </NavLeft>
             <NavRight>
                 <NavMenu>
                     <NavItem><Link to="/why-us">Pourquoi nous?</Link></NavItem>
                 </NavMenu>
-                <ContactButton>S'inscrire</ContactButton>
-                <ContactButton>Se connecter</ContactButton>
+                <Link to="/register">
+                    <ContactButton>S'inscrire</ContactButton>
+                </Link>
+                <Link to="/login">
+                    <ContactButton>Se connecter</ContactButton>
+                </Link>
                 <PublishButton>PUBLIER UNE ANNONCE</PublishButton>
             </NavRight>
         </Nav>
@@ -24,7 +27,6 @@ const Navbar = () => {
 
 export default Navbar;
 
-// Styled Components
 const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
@@ -46,7 +48,7 @@ const NavRight = styled.div`
 `;
 
 const Logo = styled.img`
-    height: 40px;
+    height: 60px; 
     margin-right: 10px;
 `;
 
@@ -100,4 +102,3 @@ const PublishButton = styled.button`
         background-color: #f0f0f0;
     }
 `;
-
