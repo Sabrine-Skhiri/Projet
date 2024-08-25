@@ -7,11 +7,15 @@ const Navbar = () => {
         <Nav>
             <NavLeft>
                 <Logo src="/images/logo.png" /> 
-                <Brand>FIND YOUR HOME</Brand>
+                <Brand>
+                    <StyledLink to='/'>FIND YOUR HOME</StyledLink>
+                </Brand>
             </NavLeft>
             <NavRight>
                 <NavMenu>
-                    <NavItem><Link to="/why-us">Pourquoi nous?</Link></NavItem>
+                    <NavItem>
+                        <StyledLink to="/whyUs">Pourquoi nous?</StyledLink>
+                    </NavItem>
                 </NavMenu>
                 <Link to="/register">
                     <ContactButton>S'inscrire</ContactButton>
@@ -57,6 +61,11 @@ const Brand = styled.span`
     font-weight: bold;
     color: #000;
     margin-right: 10px;
+`;
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
 `;
 
 const NavMenu = styled.ul`

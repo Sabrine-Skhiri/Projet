@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import Register from './Pages/Register';
 import Profile from './Pages/Profile';
 import Login from './Pages/Login';
+import WhyUs from './Pages/WhyUs';
 import { useDispatch } from 'react-redux';
 import { current } from './JS/Actions/user';
 
@@ -26,7 +27,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
-
+     
+        <Route path="/whyUs" element={<WhyUs/>} />
       </Routes>
     </div>
   );
