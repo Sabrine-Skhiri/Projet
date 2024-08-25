@@ -1,40 +1,97 @@
 import React, { useState } from 'react';
-    import { Form, Button } from 'react-bootstrap';
-    import { useDispatch } from 'react-redux';
-    import { register } from '../JS/Actions/user'; // Importer l'action pour enregistrer un utilisateur
-    import { someFunction } from '../JS/Actions/user';
-    import { useNavigate } from "react-router-dom";
-    const Register = () => {
-        const [newUser, setNewUser] = useState({}); // Déclarer un état local pour stocker les informations du nouvel utilisateur
-        const dispatch = useDispatch(); // Utiliser useDispatch pour accéder à la méthode dispatch de Redux 
-        const navigate=useNavigate();
-        // Fonction pour gérer les changements dans les champs du formulaire
-        const handleChange = (e) => {
-            setNewUser({
-                ...newUser, // Copier les valeurs actuelles de newUser
-                [e.target.name]: e.target.value // Mettre à jour le champ en fonction du nom de l'élément ciblé (name) et de sa valeur (value)
-            });
-        };
-    
-        // Fonction pour gérer la soumission du formulaire
-        const handleUser = (e) => {
-            e.preventDefault(); // Empêcher le rechargement de la page lors de la soumission du formulaire
-            dispatch(register(newUser)); // Envoyer une action pour enregistrer le nouvel utilisateur via Redux
-            navigate("/profile");
-        };
-    return(
-    <div>
-        <Form.Label>Nom</Form.Label>
-        <Form.Control type="text" placeholder="Nom" name='name'onChange={handleChange} />
-        <Form.Label>Adresse email</Form.Label>
-        <Form.Control type="email" placeholder="Adresse email" name="email" onChange={handleChange} />
-        <Form.Label>Mot de passe</Form.Label>
-        <Form.Control type="password" placeholder="Mot de passe" name="password" onChange={handleChange}/>
-        <Form.Label>Numéro de téléphone</Form.Label>
-        <Form.Control type="number" placeholder="Numéro de téléphone" name="phone" onChange={handleChange}/>
-        <Button variant="primary" type="submit" onClick={handleUser}>
-        S'inscrire 
-      </Button>
-    </div>)
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { register } from '../JS/Actions/user';
+import { useNavigate } from "react-router-dom";
+
+const Register = () => {
+    const [newUser, setNewUser] = useState({});
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setNewUser({
+            ...newUser,
+            [e.target.name]: e.target.value
+        });
     };
+
+    const handleUser = (e) => {
+        e.preventDefault();
+        dispatch(register(newUser));
+        navigate("/profile");
+    };
+
+    return (
+        <Container>
+            <Row className="justify-content-md-center">
+                <Col md={4}>
+                    <Form 
+                        onSubmit={handleUser} 
+                        style={{ 
+                            marginTop: "50px", 
+                            padding: "20px", 
+                            border: "1px solid #e64a19", 
+                            borderRadius: "10px",
+                            boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)"
+                        }}
+                    >
+                        <Form.Group controlId="formName">
+                            <Form.Label>Nom</Form.Label>
+                            <Form.Control 
+                                type="text" 
+                                placeholder="Nom" 
+                                name='name' 
+                                onChange={handleChange} 
+                            />
+                        </Form.Group>
+
+                        <Form.Group controlId="formEmail">
+                            <Form.Label>Adresse email</Form.Label>
+                            <Form.Control 
+                                type="email" 
+                                placeholder="Adresse email" 
+                                name="email" 
+                                onChange={handleChange} 
+                            />
+                        </Form.Group>
+
+                        <Form.Group controlId="formPassword">
+                            <Form.Label>Mot de passe</Form.Label>
+                            <Form.Control 
+                                type="password" 
+                                placeholder="Mot de passe" 
+                                name="password" 
+                                onChange={handleChange}
+                            />
+                        </Form.Group>
+
+                        <Form.Group controlId="formPhone">
+                            <Form.Label>Numéro de téléphone</Form.Label>
+                            <Form.Control 
+                                type="number" 
+                                placeholder="Numéro de téléphone" 
+                                name="phone" 
+                                onChange={handleChange}
+                            />
+                        </Form.Group>
+
+                        <Button 
+                            variant="primary" 
+                            type="submit" 
+                            style={{ 
+                                backgroundColor: "#e64a19", 
+                                borderColor: "#e64a19", 
+                                marginTop: "20px" 
+                            }}
+                        >
+                            S'inscrire 
+                        </Button>
+                    </Form>
+                </Col>
+            </Row>
+        </Container>
+    );
+};
+
 export default Register;
