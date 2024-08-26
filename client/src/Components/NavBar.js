@@ -23,7 +23,7 @@ const Navbar = () => {
                 <Link to="/login">
                     <ContactButton>Se connecter</ContactButton>
                 </Link>
-                <PublishButton>PUBLIER UNE ANNONCE</PublishButton>
+                <PublishButton ><Link to= "/publishHouse">PUBLIER UNE ANNONCE</Link></PublishButton>
             </NavRight>
         </Nav>
     );

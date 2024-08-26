@@ -7,10 +7,12 @@ require("dotenv").config();
 const connectDB=require("./config/connectDB");
 connectDB();
 const userRoutes = require('./routes/user');
+const houseRoutes = require('./routes/houseRoutes')
 //7.routes
 //middleware
 app.use(express.json())
 app.use('/api/user',userRoutes);
+app.use('/api/houses', houseRoutes);
 
 //3
 const PORT = process.env.PORT;

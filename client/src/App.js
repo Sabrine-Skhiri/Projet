@@ -10,7 +10,8 @@ import Login from './Pages/Login';
 import WhyUs from './Pages/WhyUs';
 import { useDispatch } from 'react-redux';
 import { current } from './JS/Actions/user';
-import Footer from './Components/Footer'; // Importer le composant Footer
+import Footer from './Components/Footer'; 
+import PublishHouse from './Pages/PublishHouse';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -47,6 +48,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/whyUs" element={<WhyUs />} />
+        <Route path="/publishHouse" element={<PublishHouse />} />
       </Routes>
       <Footer onLogout={handleLogout} />
     </AppContainer>
