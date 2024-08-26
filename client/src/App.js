@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 import { current } from './JS/Actions/user';
 import Footer from './Components/Footer'; 
 import PublishHouse from './Pages/PublishHouse';
-
+import { HouseProvider } from './Pages/HouseContext'; 
 const AppContainer = styled.div`
   min-height: 100vh;
   background-image: url('/images/background.jpg');
@@ -40,6 +40,7 @@ function App() {
   };
 
   return (
+    <HouseProvider>
     <AppContainer>
       <NavBar />
       <Routes>
@@ -52,6 +53,8 @@ function App() {
       </Routes>
       <Footer onLogout={handleLogout} />
     </AppContainer>
+    </HouseProvider>
+
   );
 }
 

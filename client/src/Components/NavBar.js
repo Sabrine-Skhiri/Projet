@@ -110,4 +110,14 @@ const PublishButton = styled.button`
     &:hover {
         background-color: #f0f0f0;
     }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: black;
+    }
 `;
+

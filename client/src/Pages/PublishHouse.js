@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { HouseContext } from './HouseContext';
+import { useNavigate } from 'react-router-dom';
 
 function PublishHouse() {
   const [title, setTitle] = useState('');
@@ -6,6 +8,9 @@ function PublishHouse() {
   const [price, setPrice] = useState('');
   const [location, setLocation] = useState('');
   const [images, setImages] = useState([]);
+  
+  const { addHouse } = useContext(HouseContext);
+  const navigate = useNavigate();
 
   const handleImageChange = (e) => {
     setImages([...e.target.files]);
@@ -13,7 +18,18 @@ function PublishHouse() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logique pour soumettre le formulaire
+    
+    const newHouse = {
+      title,
+      description,
+      price,
+      location,
+      images: Array.from(images).map((image) => URL.createObjectURL(image)), // Création d'URLs temporaires pour afficher les images
+    };
+
+    addHouse(newHouse); 
+
+    navigate('/'); 
   };
 
   return (
@@ -45,4 +61,3 @@ function PublishHouse() {
 }
 
 export default PublishHouse;
-
