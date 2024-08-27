@@ -6,7 +6,24 @@ function Home() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>Liste des maisons</h1>
+    
+      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <p style={{ fontSize: '18px', marginBottom: '10px', lineHeight: '1.6' }}>
+          Bienvenue sur notre application de location de maisons pour étudiants.
+        </p>
+        <p style={{ fontSize: '18px', marginBottom: '30px', lineHeight: '1.6' }}>
+          Trouvez les meilleures offres de logement adaptées à vos besoins et à votre budget.
+        </p>
+        
+        
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+          <img src="/images/stars.png" alt="Star Rating" style={{ width: '150px', marginBottom: '10px' }} />
+          <p style={{ fontSize: '16px', fontWeight: 'bold' }}>
+            Tellement utile et pratique !
+          </p>
+        </div>
+      </div>
+
       {houses.length === 0 ? (
         <p>Aucune maison publiée pour le moment.</p>
       ) : (
