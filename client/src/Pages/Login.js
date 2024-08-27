@@ -53,17 +53,22 @@ const Login = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            <Button 
-              variant="primary" 
-              type="submit" 
-              style={{ 
-                backgroundColor: "#e64a19", 
-                borderColor: "#e64a19", 
-                marginTop: "20px" 
-              }}
-            >
-              Se connecter
-            </Button>
+            <div className="text-center">
+              <Button 
+                variant="primary" 
+                type="submit" 
+                style={{ 
+                  backgroundColor: '#e64a19', 
+                  borderColor: '#e64a19', 
+                  marginTop: '20px', 
+                  color: 'white', 
+                  padding: '10px 20px', 
+                  borderRadius: '5px' 
+                }}
+              >
+                Se connecter
+              </Button>
+            </div>
           </Form>
         </Col>
       </Row>

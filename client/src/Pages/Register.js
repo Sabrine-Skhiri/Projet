@@ -5,7 +5,7 @@ import { register } from '../JS/Actions/user';
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-    const [newUser, setNewUser] = useState({});
+    const [newUser, setNewUser] = useState({ name: '', email: '', password: '', phone: '' });
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -42,6 +42,7 @@ const Register = () => {
                                 type="text" 
                                 placeholder="Nom" 
                                 name='name' 
+                                value={newUser.name}
                                 onChange={handleChange} 
                             />
                         </Form.Group>
@@ -52,6 +53,7 @@ const Register = () => {
                                 type="email" 
                                 placeholder="Adresse email" 
                                 name="email" 
+                                value={newUser.email}
                                 onChange={handleChange} 
                             />
                         </Form.Group>
@@ -62,6 +64,7 @@ const Register = () => {
                                 type="password" 
                                 placeholder="Mot de passe" 
                                 name="password" 
+                                value={newUser.password}
                                 onChange={handleChange}
                             />
                         </Form.Group>
@@ -69,24 +72,30 @@ const Register = () => {
                         <Form.Group controlId="formPhone">
                             <Form.Label>Numéro de téléphone</Form.Label>
                             <Form.Control 
-                                type="number" 
+                                type="tel" 
                                 placeholder="Numéro de téléphone" 
                                 name="phone" 
+                                value={newUser.phone}
                                 onChange={handleChange}
                             />
                         </Form.Group>
 
-                        <Button 
-                            variant="primary" 
-                            type="submit" 
-                            style={{ 
-                                backgroundColor: "#e64a19", 
-                                borderColor: "#e64a19", 
-                                marginTop: "20px" 
-                            }}
-                        >
-                            S'inscrire 
-                        </Button>
+                        <div className="text-center">
+                            <Button 
+                                variant="primary" 
+                                type="submit" 
+                                style={{ 
+                                    backgroundColor: "#e64a19", 
+                                    borderColor: "#e64a19", 
+                                    marginTop: "20px", 
+                                    color: 'white', 
+                                    padding: '10px 20px', 
+                                    borderRadius: '5px' 
+                                }}
+                            >
+                                S'inscrire 
+                            </Button>
+                        </div>
                     </Form>
                 </Col>
             </Row>

@@ -10,10 +10,10 @@ const Profile = () => {
     return (
         <Container>
             <Row className="justify-content-md-center">
-                <Col md={6}>  {/* Augmentation de la taille du formulaire */}
+                <Col md={6}>  
                     <Card 
                         style={{ 
-                            width: '100%',  // Prend toute la largeur de la colonne
+                            width: '100%',  
                             padding: "20px", 
                             border: "1px solid #e64a19", 
                             borderRadius: "10px",
@@ -25,7 +25,7 @@ const Profile = () => {
                             <Card.Title>{user && user.name}</Card.Title>
                             <Card.Text>{user && user.email}</Card.Text>
                             <Card.Text>{user && user.phone}</Card.Text>
-                            <Link to="./Pages/Home">
+                            <Link to="/">
                                 <Button variant="primary" style={{ backgroundColor: "#e64a19", borderColor: "#e64a19" }}>
                                     Page d'accueil
                                 </Button>

@@ -7,11 +7,8 @@ function Home() {
   return (
     <div style={{ padding: '20px' }}>
     
-      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <p style={{ fontSize: '18px', marginBottom: '10px', lineHeight: '1.6' }}>
-          Bienvenue sur notre application de location de maisons pour étudiants.
-        </p>
-        <p style={{ fontSize: '18px', marginBottom: '30px', lineHeight: '1.6' }}>
+    <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+    <p style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', lineHeight: '1.5' }}>
           Trouvez les meilleures offres de logement adaptées à vos besoins et à votre budget.
         </p>
         
